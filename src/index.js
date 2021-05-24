@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "antd/dist/antd.css";
+import "./fontawesome";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div style={{ background: "linear-gradient(to right, rgb(1, 6, 19), rgb(76, 166, 205))" }}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </div>
+  , document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
