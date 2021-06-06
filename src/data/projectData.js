@@ -2,6 +2,8 @@ import bikemundo from "../images/bikemundo.png";
 import santebarley from "../images/santebarley.png"
 import robofriends from "../images/robofriends.png"
 import smartbrain from "../images/smartbrain.png"
+import bikemundo-mobile from "../images/bikemundo-mobile.png"
+
 
 export const projectData = [
   {
@@ -31,5 +33,12 @@ export const projectData = [
     thumb: robofriends,
     description:
       "A project introduction for React JS from the course 'The Complete Web Developer in 2020 Zero to Mastery' touching basics on Redux and API."
+  },
+  {
+    name: "Bikemundo-Mobile",
+    url: "https://expo.io/@geloski43/bikemundo-mobile",
+    thumb: bikemundo-mobile-,
+    description:
+      "A mobile version for the Bikemundo Online MERN stack Web app. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app you need Expo Go app from appstore or playstore."
   },
 ];
