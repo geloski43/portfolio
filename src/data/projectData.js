@@ -2,7 +2,7 @@ import bikemundo from "../images/bikemundo.png";
 import santebarley from "../images/santebarley.png"
 import robofriends from "../images/robofriends.png"
 import smartbrain from "../images/smartbrain.png"
-import bikemundo-mobile from "../images/bikemundo-mobile.png"
+import bikemundo_mobile from "../images/bikemundo_mobile.png"
 
 
 export const projectData = [
@@ -37,8 +37,8 @@ export const projectData = [
   {
     name: "Bikemundo-Mobile",
     url: "https://expo.io/@geloski43/bikemundo-mobile",
-    thumb: bikemundo-mobile-,
+    thumb: bikemundo_mobile,
     description:
-      "A mobile version for the Bikemundo Online MERN stack Web app. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app you need Expo Go app from appstore or playstore."
+      "A mobile version for the Bikemundo Online MERN stack Web app using React Native and Expo. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app you need Expo Go app from appstore or playstore and scan the qr code."
   },
 ];
