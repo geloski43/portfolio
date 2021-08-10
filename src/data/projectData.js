@@ -3,7 +3,8 @@ import santebarley from "../images/santebarley.png"
 import robofriends from "../images/robofriends.png"
 import smartbrain from "../images/smartbrain.png"
 import bikemundo_mobile from "../images/bikemundo_mobile.png"
-
+import guess_quiz_game from "../images/guess-quiz-game.png"
+import boom_or_bust from "../images/boom-or-bust.png"
 
 export const projectData = [
   {
@@ -21,6 +22,29 @@ export const projectData = [
       "React JS E-commerce site using the companys' own API."
   },
   {
+    name: "Bikemundo-Mobile",
+    url: "https://expo.io/@geloski43/bikemundo-mobile",
+    thumb: bikemundo_mobile,
+    description:
+      "A mobile version for the Bikemundo Online MERN stack Web app using React Native and Expo. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app you need Expo Go app from appstore or playstore and scan the qr code."
+  },
+
+  {
+    name: "Boom or Bust NBA Edition",
+    url: "https://boom-or-bust-nba-edition.vercel.app/",
+    thumb: boom_or_bust,
+    description:
+      "A sports card like presentation of NBA players using https://www.balldontlie.io/#introduction api"
+  },
+  {
+    name: "Guess Quiz Game",
+    url: "https://guess-quiz-game.vercel.app/",
+    thumb: guess_quiz_game,
+    description:
+      "A word game using https://opentdb.com/api_config.php api with a node JS server to save scores"
+  },
+
+  {
     name: "Single Face Detect App",
     url: "https://geloski-facedetect.herokuapp.com",
     thumb: smartbrain,
@@ -33,12 +57,5 @@ export const projectData = [
     thumb: robofriends,
     description:
       "A project introduction for React JS from the course 'The Complete Web Developer in 2020 Zero to Mastery' touching basics on Redux and API."
-  },
-  {
-    name: "Bikemundo-Mobile",
-    url: "https://expo.io/@geloski43/bikemundo-mobile",
-    thumb: bikemundo_mobile,
-    description:
-      "A mobile version for the Bikemundo Online MERN stack Web app using React Native and Expo. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app you need Expo Go app from appstore or playstore and scan the qr code."
   },
 ];
