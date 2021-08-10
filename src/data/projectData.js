@@ -30,14 +30,14 @@ export const projectData = [
   },
 
   {
-    name: "Boom or Bust NBA Edition",
+    name: "Boom or Bust",
     url: "https://boom-or-bust-nba-edition.vercel.app/",
     thumb: boom_or_bust,
     description:
-      "A sports card like presentation of NBA players using Ball Don't Lie api (https://www.balldontlie.io/#introduction)."
+      "A sports card like presentation of NBA players using Ball Don't Lie api (https://www.balldontlie.io/#introduction) which you can compare two players base on their stats."
   },
   {
-    name: "Guess Quiz Game",
+    name: "Guess Game",
     url: "https://guess-quiz-game.vercel.app/",
     thumb: guess_quiz_game,
     description:
