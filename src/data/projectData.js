@@ -34,14 +34,14 @@ export const projectData = [
     url: "https://boom-or-bust-nba-edition.vercel.app/",
     thumb: boom_or_bust,
     description:
-      "A sports card like presentation of NBA players using https://www.balldontlie.io/#introduction api"
+      "A sports card like presentation of NBA players using Ball Don't Lie api (https://www.balldontlie.io/#introduction)."
   },
   {
     name: "Guess Quiz Game",
     url: "https://guess-quiz-game.vercel.app/",
     thumb: guess_quiz_game,
     description:
-      "A word game using https://opentdb.com/api_config.php api with a node JS server to save scores"
+      "A word game using Open trivia Database api (https://opentdb.com/api_config.php) with a node JS server to save scores."
   },
 
   {
