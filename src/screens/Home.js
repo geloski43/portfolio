@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import AnimatedSvg from "../components/AnimatedSvg"
 import { Tooltip, message, Typography } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useViewport from '../UseViewPort';
+import MobileAnimatedSvg from '../components/MobileAnimatedSvg';
 
 const { Title } = Typography;
 
@@ -11,6 +13,10 @@ const Home = () => {
   const [tweenData, setTweenData] = useState({ translateX: '100px', duration: 3000 });
   const [monster, setMonster] = useState("Kapitan Smiley")
   const [monsters, setMonsters] = useState([]);
+  const [imageLoading, setImageLoading] = useState(false);
+
+  const { width } = useViewport();
+  const breakpoint = 487;
 
   const info = () => {
     message.info({
@@ -41,6 +47,39 @@ const Home = () => {
     });
   };
 
+  const getRandomString = (length) => {
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    for (var i = 0; i < length; i++) {
+      result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+  };
+
+  const maxWarning = () => {
+    message.warning({
+      content: "Max monsters reached! Page will reload..",
+      style: {
+        marginTop: '15vh',
+      },
+      duration: 5
+    });
+  };
+
+  const randomMonster = () => {
+    if (monsters.length === 15) {
+      maxWarning();
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000)
+    }
+    setImageLoading(true);
+    setMonster(getRandomString(Math.floor((Math.random() * 30) + 1)))
+    setTimeout(() => {
+      setImageLoading(false);
+    }, 900)
+  };
+
   useEffect(() => {
     if (monsters.length > 1) {
       warning();
@@ -68,15 +107,16 @@ const Home = () => {
       <div style={{ marginRight: 35, marginBottom: 50, display: "flex", flexDirection: "row", justifyContent: "center", flexWrap: "wrap" }}>
         <Tween
           animation={tweenData}
-          style={{ height: 400, width: 1200, textAlign: 'center' }}
+          style={{ height: 400, width: width < breakpoint ? 300 : 1200, textAlign: 'center' }}
         >
           {monsters && monsters.length > 1 &&
             <div
-              style={{ width: 160, marginLeft: 520 }}
+              style={{ width: 160, marginLeft: width < breakpoint ? 65 : 520 }}
               className="title">
               <Title
                 level={5}
                 style={{
+                  fontSize: width < breakpoint ? 8 : 16,
                   color: "#a94eca",
                   background: "#1b1a2d",
                   borderRadius: 4
@@ -100,6 +140,7 @@ const Home = () => {
             >
               <img
                 style={{
+                  height: width < breakpoint ? 45 : 100,
                   marginTop: 50,
                   marginRight: 10,
                   cursor: "grabbing",
@@ -110,12 +151,31 @@ const Home = () => {
             </Tooltip>
           ))}
         </Tween>
-        <AnimatedSvg
-          setMonster={setMonster}
-          monster={monster}
-          setMonsters={setMonsters}
-          monsters={monsters}
-        />
+
+
+        {width > breakpoint ?
+          <AnimatedSvg
+            setMonster={setMonster}
+            monster={monster}
+            setMonsters={setMonsters}
+            monsters={monsters}
+            randomMonster={randomMonster}
+            setImageLoading={setImageLoading}
+            imageLoading={imageLoading}
+          />
+          :
+
+          <MobileAnimatedSvg
+            setMonster={setMonster}
+            monster={monster}
+            setMonsters={setMonsters}
+            monsters={monsters}
+            randomMonster={randomMonster}
+            setImageLoading={setImageLoading}
+            imageLoading={imageLoading}
+          />
+        }
+
       </div>
 
     </>

@@ -24,7 +24,7 @@ const App = () => {
         <Link href="#home" title={
           <span style={{ color: "orange", marginLeft: 20 }}>
             <FontAwesomeIcon icon={['fas', 'arrow-circle-up']} transform="grow-3" color="yellow" />     Home
-        </span>
+          </span>
         } />
       </Anchor>
     )
@@ -44,7 +44,7 @@ const App = () => {
 
         <div id="portfolio" style={{ marginTop: 100 }}>
           <Fade left>
-            <Title level={3} className="title" style={{ marginLeft: 40, color: "#dad416" }}>Projects</Title>
+            <Title level={3} className="title" style={{ marginLeft: 40, color: "#dad416", marginBottom: 40 }}>Projects</Title>
             <div
               style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap" }}>
               <Projects />
@@ -58,7 +58,7 @@ const App = () => {
 
       <div id="about" style={{ marginTop: 100 }}>
         <Fade right>
-          <Title level={3} className="title" style={{ marginLeft: 40, color: "#dad416" }}>About</Title>
+          {/* <Title level={3} className="title" style={{ marginLeft: 40, color: "#dad416" }}>About</Title> */}
           <About />
         </Fade>
       </div>
