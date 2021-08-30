@@ -17,7 +17,7 @@ export const projectData = [
   },
   {
     name: "Bikemundo",
-    url: "https://bikemundo.herokuapp.com",
+    url: "https://bike-mundo.vercel.app",
     thumb: bikemundo,
     description:
       "A MongoDB, ExpressJS, React, NodeJS or MERN full stack E-commerce site utilizing Firebase, Cloudinary and Redux."
