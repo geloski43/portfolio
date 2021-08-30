@@ -5,8 +5,16 @@ import smartbrain from "../images/smartbrain.png"
 import bikemundo_mobile from "../images/bikemundo_mobile.png"
 import guess_quiz_game from "../images/guess-quiz-game.png"
 import boom_or_bust from "../images/boom-or-bust.png"
+import AtarasLC from "../images/AtarasLC.png"
 
 export const projectData = [
+  {
+    name: "Atara's Learning Corner",
+    url: "https://atara-s-learning-corner.vercel.app",
+    thumb: AtarasLC,
+    description:
+      "An Online Learning Module using demo version of PDFTron as PDF file viewer and more."
+  },
   {
     name: "Bikemundo",
     url: "https://bikemundo.herokuapp.com",
