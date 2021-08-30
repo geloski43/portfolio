@@ -7,7 +7,7 @@ const { Title } = Typography;
 
 const AnchorNavigator = () => {
   const { width } = useViewPort();
-  const breakpoint = 487;
+  const breakpoint = 650;
 
 
   return (

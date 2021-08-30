@@ -1,14 +1,13 @@
 import React from "react";
 import { Card, Tooltip } from 'antd';
 import { projectData } from "../data/projectData"
-import ImageZoom from 'react-medium-image-zoom'
 import Tilt from 'react-tilt';
 import useViewport from "../UseViewPort";
 
 const Projects = () => {
 
   const { width } = useViewport();
-  const breakpoint = 487;
+  const breakpoint = 650;
 
   return (
     < >
@@ -32,26 +31,11 @@ const Projects = () => {
               hoverable
               style={{ width: 300, height: 400, marginBottom: 30 }}
               cover={
-                width > breakpoint ?
-
-                  <ImageZoom
-                    zoomMargin={0}
-                    image={{
-                      src: project.thumb,
-                      alt: 'example',
-                      style: { width: 300, height: 400 }
-                    }}
-                    zoomImage={{
-                      src: project.thumb,
-                      alt: 'example',
-                    }}
-                  />
-                  :
-                  <img
-                    style={{
-                      height: 400,
-                    }}
-                    src={project.thumb} alt="proj" />
+                <img
+                  style={{
+                    height: 400,
+                  }}
+                  src={project.thumb} alt="proj" />
 
               }>
             </Card>

@@ -16,7 +16,7 @@ const Home = () => {
   const [imageLoading, setImageLoading] = useState(false);
 
   const { width } = useViewport();
-  const breakpoint = 487;
+  const breakpoint = 650;
 
   const info = () => {
     message.info({
@@ -175,7 +175,7 @@ const Home = () => {
             imageLoading={imageLoading}
           />
         }
-
+        {/* {alert(width)} */}
       </div>
 
     </>

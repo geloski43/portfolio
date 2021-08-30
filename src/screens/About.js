@@ -16,7 +16,7 @@ const About = () => {
   const [sourceData, setSourceData] = useState(feData);
 
   const { width } = useViewport();
-  const breakpoint = 487;
+  const breakpoint = 650;
 
 
   const frontEndStack = () => {
