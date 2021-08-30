@@ -54,7 +54,7 @@ export const projectData = [
 
   {
     name: "Single Face Detect App",
-    url: "https://geloski-facedetect.herokuapp.com",
+    url: "https://smart-brain-psi.vercel.app",
     thumb: smartbrain,
     description:
       "Final project from the course 'The Complete Web Developer in 2020 Zero to Mastery' using Clarifai API and SQL Databse."
