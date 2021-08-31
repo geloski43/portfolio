@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Card, Tooltip } from 'antd';
 import { projectData } from "../data/projectData"
 import Tilt from 'react-tilt';
 import useViewport from "../UseViewPort";
+import Pagination from "../components/Pagination";
+
+let PageSize = 4;
 
 const Projects = () => {
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { width } = useViewport();
   const breakpoint = 650;
 
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return projectData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
   return (
     < >
-      {projectData.map((project, i) => (
+      {currentTableData.map((project, i) => (
         <Tooltip
           color="gray"
           key={i}
@@ -42,6 +52,18 @@ const Projects = () => {
           </Tilt>
         </Tooltip>
       ))}
+
+      <div
+        style={{ marginTop: 50 }}
+      >
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentPage}
+          totalCount={projectData.length}
+          pageSize={PageSize}
+          onPageChange={page => setCurrentPage(page)}
+        />
+      </div>
 
     </>
   )
