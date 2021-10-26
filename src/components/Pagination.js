@@ -3,23 +3,28 @@ import classnames from 'classnames';
 import { usePagination, DOTS } from '../usePagination';
 import '../pagination.scss';
 
-const Pagination = props => {
+const Pagination = (props) => {
   const {
     onPageChange,
     totalCount,
     siblingCount = 1,
     currentPage,
     pageSize,
-    className
+    className,
   } = props;
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   const paginationRange = usePagination({
     currentPage,
     totalCount,
     siblingCount,
-    pageSize
+    pageSize,
   });
 
+  // If there are less than 2 times in pagination range we shall not render the component
   if (currentPage === 0 || paginationRange.length < 2) {
     return null;
   }
@@ -34,43 +39,62 @@ const Pagination = props => {
 
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <ul
-      className={classnames('pagination-container', { [className]: className })}
-    >
-      <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === 1
+    <>
+      <ul
+        className={classnames('pagination-container', {
+          [className]: className,
         })}
-        onClick={onPrevious}
       >
-        <div className="arrow left" />
-      </li>
-      {paginationRange.map(pageNumber => {
-        if (pageNumber === DOTS) {
-          return <li key={pageNumber} className="pagination-item dots">&#8230;</li>;
-        }
+        {/* Left navigation arrow */}
+        <li
+          className={classnames('pagination-item', {
+            disabled: currentPage === 1,
+          })}
+          onClick={onPrevious}
+        >
+          <div style={{ marginTop: -8 }} className="arrow left" />
+        </li>
+        {paginationRange.map((pageNumber) => {
+          // If the pageItem is a DOT, render the DOTS unicode character
+          if (pageNumber === DOTS) {
+            return <li className="pagination-item dots">&#8230;</li>;
+          }
 
-        return (
-          <li
-            key={pageNumber}
-            className={classnames('pagination-item', {
-              selected: pageNumber === currentPage
-            })}
-            onClick={() => onPageChange(pageNumber)}
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
-      <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === lastPage
+          // Render our Page Pills
+          return (
+            <li
+              className={classnames('pagination-item', {
+                selected: pageNumber === currentPage,
+              })}
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </li>
+          );
         })}
-        onClick={onNext}
+        {/*  Right Navigation arrow */}
+        <li
+          className={classnames('pagination-item', {
+            disabled: currentPage === lastPage,
+          })}
+          onClick={onNext}
+        >
+          <div className="arrow right" />
+        </li>
+      </ul>
+      {/* <div
+        style={{ display: 'flex', justifyContent: 'center' }}
+        className={classnames('pagination-item', {
+          selected: true,
+        })}
       >
-        <div className="arrow right" />
-      </li>
-    </ul>
+        {`${numberWithCommas((currentPage - 1) * pageSize + 1)} - ${
+          currentPage === lastPage
+            ? numberWithCommas(totalCount)
+            : numberWithCommas(pageSize * currentPage)
+        }  of ${numberWithCommas(totalCount)}`}
+      </div> */}
+    </>
   );
 };
 
