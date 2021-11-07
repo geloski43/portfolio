@@ -1,25 +1,21 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Card, Tooltip } from 'antd';
+import React, { useState, useMemo } from 'react';
 import { projectData } from '../data/projectData';
 import Tilt from 'react-tilt';
-import useViewport from '../UseViewPort';
+import useViewport from '../hooks/UseViewPort';
 import Pagination from '../components/Pagination';
 
 let PageSize = 4;
 
 const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [imageLoading, setImageLoading] = useState(false);
+  const [subStrings, setSubStrings] = useState(
+    projectData.map(() => {
+      return { stringLength: 130 };
+    })
+  );
 
   const { width } = useViewport();
-  const breakpoint = 650;
-
-  const showImagePlaceHOlder = () => {
-    setImageLoading(true);
-    setTimeout(() => {
-      setImageLoading(false);
-    }, 1000);
-  };
+  const isMobile = width < 487;
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -27,80 +23,125 @@ const Projects = () => {
     return projectData.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, projectData]);
 
-  useEffect(() => {
-    showImagePlaceHOlder();
-  }, [currentPage]);
-
   return (
-    <>
-      {currentTableData.map((project, i) => (
-        <Tooltip
-          color="gray"
-          key={i}
-          placement="right"
-          title={
-            <div style={{ color: 'black' }}>
-              <span
+    <div>
+      <div className="ui centered cards">
+        {currentTableData.map((project, i) => (
+          <div
+            key={i}
+            style={{
+              background:
+                'linear-gradient(to right, rgb(206, 194, 136), rgb(167, 170, 157))',
+            }}
+            className="card"
+          >
+            <div className="content">
+              <div className="header">{project.name}</div>
+              <div
                 style={{
-                  background:
-                    'linear-gradient(to right, rgb(8, 8, 8), rgb(54, 54, 54))',
-                  color: 'yellow',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  padding: '10px',
                 }}
-                className="tool-title"
               >
-                {project.name}
-              </span>
-              <p>{project.description}</p>
-              <a
-                style={{ color: 'cyan' }}
-                rel="noopener noreferrer"
-                target="_blank"
-                href={project.url}
-              >
-                {project.url}
-              </a>
-            </div>
-          }
-        >
-          <Tilt options={{ max: 5 }}>
-            <Card
-              hoverable
-              style={{ width: 300, height: 400, marginBottom: 30 }}
-              cover={
-                !imageLoading ? (
+                <Tilt options={{ max: 55 }}>
                   <img
-                    style={{
-                      height: 400,
-                    }}
+                    style={{ height: '150px', cursor: 'grab' }}
+                    alt=""
+                    className="ui small image"
                     src={project.thumb}
-                    alt="proj"
                   />
-                ) : (
-                  <div class="ui placeholder">
-                    <div
-                      style={{
-                        height: 400,
-                      }}
-                      class="image"
-                    ></div>
-                  </div>
-                )
-              }
-            ></Card>
-          </Tilt>
-        </Tooltip>
-      ))}
+                </Tilt>
+              </div>
 
-      <div style={{ marginTop: 50 }}>
+              {console.log('substrings', subStrings)}
+              <div className="description">
+                {project.description.length > 130 ? (
+                  <p>
+                    {`${project.description.substring(
+                      0,
+                      subStrings[i].stringLength
+                    )}${subStrings[i].stringLength <= 130 ? `...` : ``}`}
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => {
+                        let updatedLengths = subStrings.map((item, index) => {
+                          if (index === i) {
+                            return {
+                              ...item,
+                              stringLength:
+                                subStrings[i].stringLength <= 130
+                                  ? item.stringLength + 500
+                                  : item.stringLength - 500,
+                            }; //gets everything that was already in item, and updates length
+                          }
+                          return item; // else return unmodified item
+                        });
+                        setSubStrings(updatedLengths); //updates the state
+                      }}
+                      className="ui mini teal tag label"
+                    >
+                      show {subStrings[i].stringLength <= 130 ? `more` : `less`}
+                    </span>
+                  </p>
+                ) : (
+                  <p>{`${project.description}`}</p>
+                )}
+              </div>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+                padding: '15px',
+              }}
+            >
+              <div
+                data-inverted=""
+                data-tooltip={isMobile ? 'Code' : `Source code`}
+                data-position="top center"
+                className="extra content"
+              >
+                <a
+                  style={{ color: 'steelblue' }}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={project.sourceCode}
+                >
+                  <i className="code icon"></i>
+                </a>
+              </div>
+
+              <div
+                data-inverted=""
+                data-tooltip={isMobile ? 'Url' : `URL`}
+                data-position="top center"
+                className="extra content"
+              >
+                <a
+                  style={{ color: 'steelblue' }}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={project.url}
+                >
+                  <i class="linkify icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: 50, justifyContent: 'center', display: 'flex' }}>
         <Pagination
-          className="pagination-bar"
+          classNameName="pagination-bar"
           currentPage={currentPage}
           totalCount={projectData.length}
           pageSize={PageSize}
           onPageChange={(page) => setCurrentPage(page)}
         />
       </div>
-    </>
+    </div>
   );
 };
 

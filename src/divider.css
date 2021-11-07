@@ -1,27 +1,27 @@
 .custom-shape-divider-bottom-1621412583 {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
 .custom-shape-divider-bottom-1621412583 svg {
   opacity: 0.2;
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 59px;
-    transform: rotateY(180deg);
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 20px;
+  transform: rotateY(180deg);
 }
 
 .custom-shape-divider-bottom-1621412583 .shape-fill {
-    fill: #FFFFFF;
+  fill: #ffffff;
 }
 
 .custom-shape-divider-bottom-1621412357 {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   width: 100%;
@@ -35,21 +35,21 @@
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 59px;
-  transform: rotateY(180deg);
+  height: 20px;
+  transform: rotateX(180deg);
 }
 
 .custom-shape-divider-bottom-1621412357 .shape-fill {
-  fill: #FFFFFF;
+  fill: #ffffff;
 }
 
 .custom-shape-divider-bottom-1621603280 {
   bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
 .custom-shape-divider-bottom-1621603280 svg {
@@ -57,10 +57,10 @@
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 59px;
+  height: 20px;
   transform: rotateY(180deg);
 }
 
 .custom-shape-divider-bottom-1621603280 .shape-fill {
-  fill: #FFFFFF;
+  fill: #ffffff;
 }

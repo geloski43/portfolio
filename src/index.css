@@ -2,31 +2,32 @@
   font-family: 'StarJedi Special Edition Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('StarJedi Special Edition Regular'), url('STJEDISE.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'Twigs Medium';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Twigs Medium'), url('Twigs.woff') format('woff');
-    }
+  src: local('StarJedi Special Edition Regular'),
+    url('./fonts/STJEDISE.woff') format('woff');
+}
 
-  @font-face {
+@font-face {
+  font-family: 'Twigs Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Twigs Medium'), url('./fonts/Twigs.woff') format('woff');
+}
+
+@font-face {
   font-family: 'Star Jedi Logo DoubleLine1 Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('Star Jedi Logo DoubleLine1 Regular'), url('Stjldbl1.woff') format('woff');
-  }
-  
+  src: local('Star Jedi Logo DoubleLine1 Regular'),
+    url('./fonts/Stjldbl1.woff') format('woff');
+}
 
-  @font-face {
+@font-face {
   font-family: 'Star Jedi Logo MonoLine Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('Star Jedi Logo MonoLine Regular'), url('Strjmono.woff') format('woff');
-  }
-
+  src: local('Star Jedi Logo MonoLine Regular'),
+    url('./fonts/Strjmono.woff') format('woff');
+}
 
 body {
   margin: 0;
@@ -42,15 +43,28 @@ code {
     monospace;
 }
 
-.title {
-  font-family: 'Star Jedi Logo DoubleLine1 Regular';
+#button-seg {
+  background: #0b0d20;
+}
+
+#sticky-segment {
+  background-color: rgb(167, 170, 157, 0.3);
+}
+
+#sticky-segment:hover {
+  background-color: rgb(54, 75, 43);
+}
+
+#title {
+  font-family: 'Twigs Medium';
+  font-weight: bolder;
 }
 
 .tool-title {
   font-family: 'Star Jedi Logo MonoLine Regular';
 }
 
-.message{
+.message {
   font-family: 'Twigs Medium';
   font-weight: bolder;
 }
@@ -58,4 +72,17 @@ code {
 .site-card-border-less-wrapper {
   padding: 30px;
   background: #ececec;
+}
+
+#menu-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  /* background: linear-gradient(to right, rgb(110, 57, 7), rgba(141, 137, 137, 0.075)); */
+  top: 0;
+}
+
+#bottom-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
 }
