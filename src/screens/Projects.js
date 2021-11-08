@@ -14,6 +14,8 @@ const Projects = () => {
     })
   );
 
+  const [imageStatus, setImageStatus] = useState('loading');
+
   const { width } = useViewport();
   const isMobile = width < 487;
 
@@ -46,10 +48,20 @@ const Projects = () => {
               >
                 <Tilt options={{ max: 55 }}>
                   <img
+                    onLoad={(e) => {
+                      e.target.onload = null;
+                      setTimeout(() => {
+                        setImageStatus('loaded');
+                      }, 300);
+                    }}
                     style={{ height: '150px', cursor: 'grab' }}
                     alt=""
                     className="ui small image"
-                    src={project.thumb}
+                    src={
+                      imageStatus === 'loading'
+                        ? `${`https://via.placeholder.com/150/BBC2CC/0000FF?text=.....`}`
+                        : project.thumb
+                    }
                   />
                 </Tilt>
               </div>
