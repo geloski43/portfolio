@@ -1,31 +1,39 @@
 export const feData = [
   {
     stack: 'HTML',
-    proficiency: 3,
+    proficiency: 3.4,
   },
   {
     stack: 'CSS',
-    proficiency: 2.7,
+    proficiency: 3.2,
   },
   {
     stack: 'Javascript',
     proficiency: 3.4,
   },
   {
+    stack: 'TypeScript',
+    proficiency: 2.8,
+  },
+  {
     stack: 'React',
-    proficiency: 3.5,
+    proficiency: 3.7,
   },
   {
     stack: 'Redux',
-    proficiency: 2.4,
+    proficiency: 2.7,
   },
   {
     stack: 'Bootstrap',
-    proficiency: 2,
+    proficiency: 2.3,
   },
   {
     stack: 'Ant Design',
     proficiency: 2.9,
+  },
+  {
+    stack: 'Semantic UI',
+    proficiency: 3.1,
   },
   {
     stack: 'Expo Cli',

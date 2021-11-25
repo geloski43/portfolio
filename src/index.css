@@ -60,8 +60,22 @@ code {
   font-weight: bolder;
 }
 
+.tooltip-msg {
+  font-family: 'Twigs Medium';
+  font-weight: bolder;
+}
+
 .tool-title {
   font-family: 'Star Jedi Logo MonoLine Regular';
+}
+
+.home-title {
+  font-family: 'Twigs Medium';
+  display: flex;
+  justify-content: center;
+  color: #dad416;
+  margin-bottom: -20px;
+  margin-top: 30px;
 }
 
 .message {
@@ -85,4 +99,8 @@ code {
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
+}
+
+.hammer-cursor {
+  cursor: url('./images//hammer.svg'), auto;
 }

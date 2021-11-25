@@ -1,88 +1,99 @@
 import React, { useState } from 'react';
 import { Tooltip } from 'antd';
 import useViewport from '../hooks/UseViewPort';
-import homeBg from '../images/homebg.jpg';
+import hole from '../images/hole.svg';
+import clouds from '../images/clouds.png';
+import faker from 'faker';
+import Bounce from 'react-reveal/Bounce';
 
 const Home = () => {
-  const [monster, setMonster] = useState('Kapitan Smiley');
-  const [string, setString] = useState('Who TF are these guys?');
-
   const { width } = useViewport();
   const isMobile = width < 487;
 
-  const getRandomString = (length) => {
-    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    var result = '';
-    for (var i = 0; i < length; i++) {
-      result += randomChars.charAt(
-        Math.floor(Math.random() * randomChars.length)
-      );
-    }
-    return result;
-  };
+  const fakeWord = faker.hacker.phrase();
+  const fakeName = faker.name.firstName();
+
+  const randomInline = `${Math.floor(
+    isMobile ? Math.random() * 40 + -20 : Math.random() * 70 + -10
+  )}vw`;
+  const randomBlock = `${Math.floor(
+    isMobile ? Math.random() * 70 + -20 : Math.random() * 20 + -10
+  )}vw`;
+
+  const [monster, setMonster] = useState('Kapitan Smiley');
+  const [randomMarginInline, setRandomMarginInline] = useState(randomInline);
+  const [randomMarginBlock, setRandomMarginBlock] = useState(randomBlock);
+  const [firstName, setFirstName] = useState(fakeName);
+  const [word, setWord] = useState(fakeWord);
 
   return (
     <>
+      <h1 className="home-title">
+        <Bounce top cascade>
+          Hi! I am Gelo, Front End Dev.
+        </Bounce>
+      </h1>
       <div
+        className="hammer-cursor"
         style={{
-          marginTop: '20px',
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          backgroundImage: `url(${homeBg})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
+          flexDirection: 'column',
+          padding: isMobile ? '100px' : '200px',
+          backgroundImage: `url(${clouds})`,
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          marginTop: 20,
+          marginInline: 20,
+          marginBottom: 20,
         }}
       >
         <div
           style={{
-            height: 400,
-            marginTop: '20%',
-            textAlign: 'center',
+            marginInline: randomMarginInline,
+            marginTop: randomMarginBlock,
           }}
         >
-          <Tooltip
-            overlayInnerStyle={{ borderRadius: 20, height: '40px' }}
-            trigger=""
-            defaultVisible={true}
-            color="whitesmoke"
-            placement="top"
-            title={
-              <div>
-                <span
-                  id="title"
-                  style={{
-                    color: 'black',
-                    fontSize: isMobile ? 8 : 12,
-                  }}
-                >
-                  {string !== 'Who TF are these guys?'
-                    ? "I'm saying random.." + string
-                    : string}
-                </span>
-              </div>
-            }
-          >
+          <div>
             <img
-              onClick={() => {
-                setMonster(getRandomString(Math.floor(Math.random() * 10 + 1)));
-                setString(getRandomString(Math.floor(Math.random() * 10 + 1)));
-              }}
-              style={{
-                height: isMobile ? '4.5%' : '15%',
-                marginTop: isMobile ? 185 : 132,
-                marginRight: isMobile ? 5.5 : 19,
-                cursor: 'pointer',
-                background: 'transparent',
-              }}
-              src={`https://robohash.org/${monster}?set=set2;size=100x100`}
-              alt="gelo"
+              alt=""
+              style={{ height: isMobile ? '23px' : '40px' }}
+              src={hole}
             />
-          </Tooltip>
+          </div>
+          <Bounce delay={500} spy={randomMarginInline}>
+            <div>
+              <Tooltip
+                overlayClassName="tooltip-msg"
+                trigger={['hover', 'click']}
+                overlayInnerStyle={{
+                  borderRadius: 20,
+                  backgroundColor: 'whitesmoke',
+                  color: 'black',
+                }}
+                color="whitesmoke"
+                title={!isMobile ? `${word} -${firstName}` : ''}
+              >
+                <img
+                  onClick={() => {
+                    setRandomMarginBlock(randomBlock);
+                    setRandomMarginInline(randomInline);
+                    setMonster(fakeName);
+                    setWord(fakeWord);
+                    setFirstName(fakeName);
+                  }}
+                  alt=""
+                  style={{
+                    height: isMobile ? '35px' : '60px',
+                    marginLeft: isMobile ? '12px' : '20px',
+                    marginTop: isMobile ? '-79px' : '-118px',
+                  }}
+                  src={`https://robohash.org/${monster}?set=set2;size=100x100`}
+                />
+              </Tooltip>
+            </div>
+          </Bounce>
         </div>
-        {/* {alert(width)} */}
       </div>
     </>
   );
