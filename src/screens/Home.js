@@ -28,11 +28,19 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="home-title">
-        <Bounce top cascade>
-          Hi! I am Gelo, Front End Dev.
-        </Bounce>
-      </h1>
+      {!isMobile ? (
+        <h1 className="home-title">
+          <Bounce top cascade>
+            Hi! I am Gelo, Front End Dev.
+          </Bounce>
+        </h1>
+      ) : (
+        <h3 className="home-title">
+          <Bounce top cascade>
+            Hi! I am Gelo, Front End Dev.
+          </Bounce>
+        </h3>
+      )}
       <div
         className="hammer-cursor"
         style={{
