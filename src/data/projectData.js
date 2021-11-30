@@ -1,5 +1,5 @@
 import bikemundo from '../images/bikemundo.JPG';
-import dota from '../images/dota-2.JPG';
+import gelojsnote from '../images/gelojsnote.JPG';
 import robofriends from '../images/robofriends.JPG';
 import smartbrain from '../images/smartbrain.JPG';
 import bikemundo_mobile from '../images/bikemundo_mobile.png';
@@ -9,12 +9,12 @@ import AtarasLC from '../images/AtarasLC.JPG';
 
 export const projectData = [
   {
-    name: 'Dota-2',
-    url: 'https://dota-2.vercel.app',
-    thumb: dota,
+    name: 'geloski-jbook',
+    url: 'https://www.npmjs.com/package/geloski-jsnote',
+    thumb: gelojsnote,
     description:
-      'A lighter version of open dota website using their API and still under development',
-    sourceCode: 'https://github.com/geloski43/dota-2',
+      'A Javascript note book, with a simple markdown editor, and a simple markdown previewer.',
+    sourceCode: 'https://github.com/geloski43/geloski-jbook',
   },
   {
     name: "Atara's Learning Corner",
