@@ -59,7 +59,7 @@ export const projectData = [
     url: 'https://bike-mundo.vercel.app',
     thumb: bikemundo,
     description:
-      'A MongoDB, ExpressJS, React, NodeJS or MERN full stack E-commerce site utilizing Firebase, Cloudinary and Redux.',
+      'A MongoDB, ExpressJS, React, NodeJS or MERN full stack E-commerce site utilizing Firebase, Cloudinary and Redux. Please send me an email if you want to test this as an admin so you can create products and more.',
     sourceCode: 'https://github.com/geloski43/Bikemundo',
     platform: 'web',
   },
@@ -68,7 +68,7 @@ export const projectData = [
     url: 'https://expo.io/@geloski43/bikemundo-mobile',
     thumb: bikemundo_mobile,
     description:
-      'A mobile version for the Bikemundo Online MERN stack Web app using React Native and Expo. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app, click the url link below and download Expo Go app from appstore or playstore and scan the qr code from the website.',
+      'A mobile version for the Bikemundo Online MERN stack Web app using React Native and Expo. I have replaced redux with React hooks to manage global state while still retaining all of the features from the Web app. To run this app, click the url link below and download Expo Go app from appstore or playstore and scan the qr code from the website. Please send me an email if you want to test this as an admin so you can create products and more.',
     sourceCode: 'https://github.com/geloski43/bikemundo-mobile',
     platform: 'mobile',
   },
