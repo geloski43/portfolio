@@ -28,12 +28,12 @@ const Projects = () => {
 
   return (
     <div>
-      <div style={{ marginLeft: 70, marginBottom: 20 }}>
+      <div style={{ marginLeft: isMobile ? 50 : 70, marginBottom: 20 }}>
         <select
           style={{
-            height: 45,
+            height: isMobile ? 35 : 45,
             fontWeight: 'bold',
-            fontSize: '1.3rem',
+            fontSize: isMobile ? '0.80rem' : '1.3rem',
             background:
               'linear-gradient(to right, rgb(173, 179, 173), rgb(245, 245, 245))',
             border: 'none',
