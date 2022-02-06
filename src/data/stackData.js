@@ -1,15 +1,15 @@
 export const feData = [
   {
     stack: 'HTML',
-    proficiency: 3.4,
+    proficiency: 3.7,
   },
   {
     stack: 'CSS',
-    proficiency: 3.2,
+    proficiency: 3.5,
   },
   {
     stack: 'Javascript',
-    proficiency: 3.4,
+    proficiency: 3.8,
   },
   {
     stack: 'TypeScript',
@@ -17,15 +17,15 @@ export const feData = [
   },
   {
     stack: 'React',
-    proficiency: 3.7,
+    proficiency: 3.8,
   },
   {
     stack: 'Redux',
-    proficiency: 2.7,
+    proficiency: 2.8,
   },
   {
     stack: 'Bootstrap',
-    proficiency: 2.3,
+    proficiency: 2.4,
   },
   {
     stack: 'Ant Design',
@@ -37,18 +37,18 @@ export const feData = [
   },
   {
     stack: 'Expo Cli',
-    proficiency: 3,
+    proficiency: 3.2,
   },
 ];
 
 export const beData = [
   {
     stack: 'MongoDB',
-    proficiency: 2.9,
+    proficiency: 3.2,
   },
   {
     stack: 'Node JS',
-    proficiency: 2.1,
+    proficiency: 2.5,
   },
   {
     stack: 'Firebase',
@@ -56,7 +56,7 @@ export const beData = [
   },
   {
     stack: 'Cloudinary',
-    proficiency: 1.9,
+    proficiency: 2.5,
   },
 ];
 

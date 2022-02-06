@@ -4,10 +4,11 @@ import Tilt from 'react-tilt';
 import useViewport from '../hooks/UseViewPort';
 import Pagination from '../components/Pagination';
 
-let PageSize = 4;
-
 const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalItems, setTotalItems] = useState(projectData.length);
+  const [pageSize, setPageSize] = useState(4);
+  const [data, setData] = useState(projectData);
   const [subStrings, setSubStrings] = useState(
     projectData.map(() => {
       return { stringLength: 130 };
@@ -20,13 +21,47 @@ const Projects = () => {
   const isMobile = width < 487;
 
   const currentTableData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return projectData.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, projectData]);
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return data.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, data, pageSize]);
 
   return (
     <div>
+      <div style={{ marginLeft: 70, marginBottom: 20 }}>
+        <select
+          style={{
+            height: 45,
+            fontWeight: 'bold',
+            fontSize: '1.3rem',
+            background:
+              'linear-gradient(to right, rgb(173, 179, 173), rgb(245, 245, 245))',
+            border: 'none',
+            padding: '10px',
+            borderRadius: '5px',
+          }}
+          onChange={(v) => {
+            if (v.target.value === 'all') {
+              setData(projectData);
+              setTotalItems(projectData.length);
+              setCurrentPage(1);
+            } else {
+              let filteredData = projectData.filter((item, i) => {
+                return item.platform === v.target.value;
+              });
+              setCurrentPage(1);
+              setTotalItems(filteredData.length);
+              setData(filteredData);
+            }
+          }}
+          className="ui dropdown"
+        >
+          <option value="all">All</option>
+          <option value="web">Web</option>
+          <option value="mobile">Mobile</option>
+        </select>
+      </div>
+
       <div className="ui centered cards">
         {currentTableData.map((project, i) => (
           <div
@@ -48,6 +83,7 @@ const Projects = () => {
               >
                 <Tilt options={{ max: 55 }}>
                   <img
+                    key={project.name}
                     onLoad={(e) => {
                       e.target.onload = null;
                       setTimeout(() => {
@@ -148,8 +184,8 @@ const Projects = () => {
         <Pagination
           classNameName="pagination-bar"
           currentPage={currentPage}
-          totalCount={projectData.length}
-          pageSize={PageSize}
+          totalCount={totalItems}
+          pageSize={pageSize}
           onPageChange={(page) => setCurrentPage(page)}
         />
       </div>
