@@ -7,8 +7,18 @@ import guess_quiz_game from '../images/guess-quiz-game.JPG';
 import boom_or_bust from '../images/boom-or-bust.JPG';
 import AtarasLC from '../images/AtarasLC.JPG';
 import tenbits from '../images/tenbits.png';
+import guess_quiz2 from '../images/guess-quiz2-0.png';
 
 export const projectData = [
+  {
+    name: 'Guess Quiz2.0',
+    url: 'https://guess-quiz2-0.vercel.app/',
+    thumb: guess_quiz2,
+    description:
+      'The second version of the guess game from my early projects built mainly using chakra ui. I also added contextualwebsearch,an image search api to be used as image hint base on the question from open trivia api. Overall an improvement in user experience although I would prefer a faster image search api like serpapi. I deliberately created a new repo instead of re-writing the first version so I can always go back and see what else needs improvement.',
+    sourceCode: 'https://github.com/geloski43/guess-quiz2.0',
+    platform: 'web',
+  },
   {
     name: 'Tenbits Music',
     url: 'https://expo.dev/@geloski43/ten-bits-music',
@@ -79,15 +89,6 @@ export const projectData = [
     description:
       "Final project from the course 'The Complete Web Developer in 2020 Zero to Mastery' using Clarifai API and SQL Databse.",
     sourceCode: 'https://github.com/geloski43/smart-brain',
-    platform: 'web',
-  },
-  {
-    name: 'Robo Friends',
-    url: 'https://geloski43.github.io/alienbots',
-    thumb: robofriends,
-    description:
-      "A project introduction for React JS from the course 'The Complete Web Developer in 2020 Zero to Mastery' touching basics on Redux and API.",
-    sourceCode: 'https://github.com/geloski43/alienbots',
     platform: 'web',
   },
 ];
