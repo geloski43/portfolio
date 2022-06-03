@@ -8,8 +8,18 @@ import boom_or_bust from '../images/boom-or-bust.JPG';
 import AtarasLC from '../images/AtarasLC.JPG';
 import tenbits from '../images/tenbits.png';
 import guess_quiz2 from '../images/guess-quiz2-0.png';
+import boom_or_bust_app from '../images/boom-or-bust-app.png';
 
 export const projectData = [
+  {
+    name: 'Boom-or-Bust-App',
+    url: 'https://expo.dev/@geloski43/boom-or-bust-app',
+    thumb: boom_or_bust_app,
+    description:
+      "Mobile version of boom or bust web app that has improved user experience and functionality using the same Ball Don't Lie api (https://www.balldontlie.io/#introduction). Get old and current nba players stats, be it playoffs or regular season and try to compare two players side by side stats for a single season.  To run this app, click the url link below and download Expo Go app from appstore or playstore and scan the qr code from the website.",
+    sourceCode: 'https://github.com/geloski43/boom-or-bust-app',
+    platform: 'mobile',
+  },
   {
     name: 'Guess Quiz2.0',
     url: 'https://guess-quiz2-0.vercel.app/',

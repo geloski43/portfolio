@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Home from './screens/Home';
-import Projects from './screens/Projects';
+import Home from './screen-segments/Home';
+import Projects from './screen-segments/Projects';
 import Fade from 'react-reveal/Fade';
-import About from './screens/About';
+import About from './screen-segments/About';
 import './divider.css';
 import BottomDivider from './components/Divider';
 import FooterLinks from './components/FooterLinks';
