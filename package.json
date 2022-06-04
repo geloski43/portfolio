@@ -10,7 +10,6 @@
     "@iconify-icons/logos": "^1.1.9",
     "@iconify-icons/vscode-icons": "^1.1.4",
     "@iconify/icons-logos": "^1.1.10",
-    "@iconify/react": "^1.1.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -51,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify/icons-simple-icons": "^1.2.15",
+    "@iconify/react": "^3.2.2"
   }
 }

@@ -36,6 +36,14 @@ export const feData = [
     proficiency: 3.1,
   },
   {
+    stack: 'Chakra UI',
+    proficiency: 3.2,
+  },
+  {
+    stack: 'NativeBase',
+    proficiency: 3.2,
+  },
+  {
     stack: 'Expo Cli',
     proficiency: 3.2,
   },

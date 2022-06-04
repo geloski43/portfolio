@@ -53,13 +53,22 @@ const About = () => {
         {feGroup.map((value, i) => (
           <Tilt key={i} options={{ max: 25 }}>
             <a rel="noopener noreferrer" target="_blank" href={value.domain}>
-              <Tag
-                style={{ marginBottom: 10 }}
-                icon={<Icon icon={value.icon} />}
-              >
-                {' '}
-                {value.name}
-              </Tag>
+              {value.icon ? (
+                <Tag
+                  style={{ marginBottom: 10 }}
+                  icon={
+                    <Icon
+                      icon={value.icon}
+                      color={value.name === 'Chakra UI' ? 'teal' : ''}
+                    />
+                  }
+                >
+                  {' '}
+                  {value.name}
+                </Tag>
+              ) : (
+                <Tag style={{ marginBottom: 10 }}> {value.name}</Tag>
+              )}
             </a>
           </Tilt>
         ))}

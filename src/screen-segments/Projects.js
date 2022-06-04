@@ -90,9 +90,11 @@ const Projects = () => {
                         setImageStatus('loaded');
                       }, 300);
                     }}
-                    style={{ height: '150px', cursor: 'grab' }}
+                    style={{
+                      height: '150px',
+                      cursor: 'grab',
+                    }}
                     alt=""
-                    className="ui small image"
                     src={
                       imageStatus === 'loading'
                         ? `${`https://via.placeholder.com/150/BBC2CC/0000FF?text=.....`}`

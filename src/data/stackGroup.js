@@ -12,6 +12,7 @@ import expoIcon from '@iconify-icons/logos/expo';
 import fileTypeMongo from '@iconify-icons/vscode-icons/file-type-mongo';
 import typescriptIcon from '@iconify/icons-logos/typescript-icon';
 import semanticUi from '@iconify/icons-logos/semantic-ui';
+import chakrauiIcon from '@iconify/icons-simple-icons/chakraui';
 
 export const feGroup = [
   {
@@ -58,6 +59,16 @@ export const feGroup = [
     icon: semanticUi,
     name: 'Semantic UI',
     domain: 'https://semantic-ui.com/introduction/getting-started.html',
+  },
+  {
+    icon: chakrauiIcon,
+    name: 'Chakra UI',
+    domain: 'https://chakra-ui.com/',
+  },
+  {
+    name: 'NativeBase',
+    domain:
+      'https://docs.nativebase.io/?utm_source=HomePage&utm_medium=Hero_Fold&utm_campaign=NativeBase_3',
   },
   {
     icon: expoIcon,
