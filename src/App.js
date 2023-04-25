@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './screen-segments/Home';
 import Projects from './screen-segments/Projects';
 import Fade from 'react-reveal/Fade';
@@ -9,7 +9,7 @@ import FooterLinks from './components/FooterLinks';
 import StickyHeader from './hooks/StickyHeader';
 import StickyToTop from './components/StickyToTop';
 import useViewport from './hooks/UseViewPort';
-import { Typography } from 'antd';
+import { Typography, Alert, Space } from 'antd';
 import Bounce from 'react-reveal/Bounce';
 import NavButtons from './components/NavButtons';
 
@@ -21,9 +21,30 @@ const App = () => {
 
   const { Title } = Typography;
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      // 👇️ redirects to my new portfolio
+      window.location.replace('https://geloski43.vercel.app/');
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const onClose = () => {
+    console.log('I was closed.');
+  };
+
   return (
     <div id="home">
-      <div
+      <Space direction="vertical" style={{ width: '100%' }}>
+        <Alert
+          message="You are being redirected to my new portfolio..."
+          type="info"
+          closable
+          onClose={onClose}
+        />
+      </Space>
+      {/* <div
         style={{
           display: 'flex',
           justifyContent: 'center',
@@ -125,7 +146,7 @@ const App = () => {
           <FooterLinks />
         </div>
       </Fade>
-      {isSticky && <StickyToTop setCurrentRef={setCurrentRef} />}
+      {isSticky && <StickyToTop setCurrentRef={setCurrentRef} />} */}
     </div>
   );
 };
